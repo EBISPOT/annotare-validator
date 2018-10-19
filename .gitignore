@@ -1,6 +1,6 @@
 *.tmp
 build
 imports
-build./
+build/.
 imports/.
 catalog-v001.xml
