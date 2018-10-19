@@ -1,3 +1,5 @@
+mkdir imports/
+mkdir build/
 echo -ne '\n'
 echo -ne 'Downloading Annotare and EFO...'
 echo -ne '\n'
@@ -13,7 +15,7 @@ awk '/_/ {print $3}' ./imports/annotare-default.properties > ./build/annotare_al
 sleep 1
 awk '!/array/ {print}' ./build/annotare_all_terms.tsv > ./build/annotare_terms.tsv && echo -ne '|#####               |   (25%)\r'
 sleep 1
-cat ./imports/ID.tsv ./build/annotare_terms.tsv > ./build/at.tmp && mv ./build/at.tmp ./build/annotare_terms.tsv && echo -ne '|#######             |   (37%)\r'
+cat ./templates/ID.tsv ./build/annotare_terms.tsv > ./build/at.tmp && mv ./build/at.tmp ./build/annotare_terms.tsv && echo -ne '|#######             |   (37%)\r'
 sleep 1
 sed 's/_/:/' ./build/annotare_terms.tsv > ./build/annotare.tsv && echo -ne '|##########          |   (50%)\r'
 sleep 1
