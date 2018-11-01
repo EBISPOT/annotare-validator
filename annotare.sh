@@ -27,4 +27,4 @@ bin/robot query --input build/annotare_terms.owl --query sparql/annotate.sparql 
 sleep 1
 bin/robot merge --input imports/efo-edit.owl --input build/annotare_annotate.owl --output build/efo-edit.owl && echo -ne '|#################   |   (87%)\r'
 sleep 1
-#bin/robot verify -i build/efo-edit.owl --queries sparql/obsolete.sparql -O reports/  && echo -ne '|####################|   (100%)\r'
+bin/robot verify -i build/efo-edit.owl --queries sparql/obsolete.sparql -O reports/  && echo -ne '|####################|   (100%)\r'
