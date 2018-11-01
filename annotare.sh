@@ -6,7 +6,7 @@ echo -ne '\n'
 echo -ne 'Downloading Annotare and EFO...'
 echo -ne '\n'
 sleep 1
-curl https://raw.githubusercontent.com/arrayexpress/annotare2/b70b8c7bb70f2fbf45aac40b579f195aaf8cac49/app/webapp/src/main/resources/Annotare-default.properties > ./imports/annotare-default.properties 
+curl https://raw.githubusercontent.com/arrayexpress/annotare2/master/app/webapp/src/main/resources/Annotare-default.properties > ./imports/annotare-default.properties 
 curl https://raw.githubusercontent.com/EBISPOT/efo/master/src/ontology/efo-edit.owl > imports/efo-edit.owl
 echo -ne '\n'
 echo -ne 'Running tests...'

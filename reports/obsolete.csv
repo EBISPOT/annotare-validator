@@ -1,2 +1,3 @@
 obsoleteclass,obsoletelabel,replacementclass
+http://www.ebi.ac.uk/efo/EFO_0000322,obsolete_cell line,http://purl.obolibrary.org/obo/CL_0000010
 http://www.ebi.ac.uk/efo/EFO_0004120,obsolete_ArrayExpress experiment type,
