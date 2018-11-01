@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir imports/
 mkdir build/
 echo -ne '\n'
@@ -19,10 +21,10 @@ cat ./templates/ID.tsv ./build/annotare_terms.tsv > ./build/at.tmp && mv ./build
 sleep 1
 sed 's/_/:/' ./build/annotare_terms.tsv > ./build/annotare.tsv && echo -ne '|##########          |   (50%)\r'
 sleep 1
-robot template --prefix "OBI: http://purl.obolibrary.org/obo/OBI_" --prefix "EFO: http://www.ebi.ac.uk/efo/EFO_" --prefix "UO: http://purl.obolibrary.org/obo/UO_" --prefix "GO: http://purl.obolibrary.org/obo/GO_" --prefix "CL: http://purl.obolibrary.org/obo/CL_" --prefix "PATO: http://purl.obolibrary.org/obo/PATO_" --template build/annotare.tsv --output build/annotare_terms.owl  && echo -ne '|############        |   (62%)\r'
+bin/robot template --prefix "OBI: http://purl.obolibrary.org/obo/OBI_" --prefix "EFO: http://www.ebi.ac.uk/efo/EFO_" --prefix "UO: http://purl.obolibrary.org/obo/UO_" --prefix "GO: http://purl.obolibrary.org/obo/GO_" --prefix "CL: http://purl.obolibrary.org/obo/CL_" --prefix "PATO: http://purl.obolibrary.org/obo/PATO_" --template build/annotare.tsv --output build/annotare_terms.owl  && echo -ne '|############        |   (62%)\r'
 sleep 1
-robot query --input build/annotare_terms.owl --query sparql/annotate.sparql build/annotare_annotate.owl  && echo -ne '|###############     |   (75%)\r'
+bin/robot query --input build/annotare_terms.owl --query sparql/annotate.sparql build/annotare_annotate.owl  && echo -ne '|###############     |   (75%)\r'
 sleep 1
-robot merge --input imports/efo-edit.owl --input build/annotare_annotate.owl --output build/efo-edit.owl && echo -ne '|#################   |   (87%)\r'
+bin/robot merge --input imports/efo-edit.owl --input build/annotare_annotate.owl --output build/efo-edit.owl && echo -ne '|#################   |   (87%)\r'
 sleep 1
-robot verify -i build/efo-edit.owl --queries sparql/obsolete.sparql -O reports/  && echo -ne '|####################|   (100%)\r'
+bin/robot verify -i build/efo-edit.owl --queries sparql/obsolete.sparql -O reports/  && echo -ne '|####################|   (100%)\r'
