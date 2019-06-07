@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir imports/
-mkdir build/
+mkdir -p imports/
+mkdir -p build/
 echo -ne '\n'
 echo -ne 'Downloading Annotare and EFO...'
 echo -ne '\n'
